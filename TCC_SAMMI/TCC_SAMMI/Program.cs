@@ -1,4 +1,4 @@
-using TCC_SAMMI.Components;
+using TCC_SAMMI.Presentation.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 

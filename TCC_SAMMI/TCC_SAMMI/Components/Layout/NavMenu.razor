@@ -1,30 +1,39 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">TCC_SAMMI</a>
+﻿<!-- MainLayout.razor -->
+@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+
+@if (!IsCadastroPage())
+{
+    <div class="main">
+        <!-- Navigation bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+            <div class="container">
+                <div class="navbar-brand mr-auto">
+                    <button class="btn btn-outline-light mr-2">Botão Esquerdo</button> <!-- Botão no canto esquerdo -->
+                    <span class="navbar-text">Sammi Games</span> <!-- Texto "Sammi Games" -->
+                </div>
+                
+                <div class="navbar-collapse collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <NavLink class="btn btn-outline-light mr-2" href="/cadastro">Cadastre-se</NavLink>
+                        </li>
+                        <li class="nav-item">
+                            <img src="caminho/para/sua/logo.png" alt="Ícone" style="height: 30px;"> <!-- Ícone PNG -->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </div>
-</div>
+}
 
-<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+@code {
+    // Método para verificar se está na página de cadastro
+    private bool IsCadastroPage()
+    {
+        return NavigationManager.Uri.Contains("/cadastro");
+    }
+}
 
-<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="weather">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
-            </NavLink>
-        </div>
-    </nav>
-</div>
 
