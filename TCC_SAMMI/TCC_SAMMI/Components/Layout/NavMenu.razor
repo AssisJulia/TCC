@@ -1,4 +1,41 @@
-﻿
+<!-- MainLayout.razor -->
+@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+
+@if (!IsCadastroPage())
+{
+    <div class="main">
+        <!-- Navigation bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+            <div class="container">
+                <div class="navbar-brand mr-auto">
+                    <button class="btn btn-outline-light mr-2">Botão Esquerdo</button> <!-- Botão no canto esquerdo -->
+                    <span class="navbar-text">Sammi Games</span> <!-- Texto "Sammi Games" -->
+                </div>
+                
+                <div class="navbar-collapse collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <NavLink class="btn btn-outline-light mr-2" href="/cadastro">Cadastre-se</NavLink>
+                        </li>
+                        <li class="nav-item">
+                            <img src="caminho/para/sua/logo.png" alt="Ícone" style="height: 30px;"> <!-- Ícone PNG -->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+}
+
+@code {
+    // Método para verificar se está na página de cadastro
+    private bool IsCadastroPage()
+    {
+        return NavigationManager.Uri.Contains("/cadastro");
+    }
+}
+
 <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">TCC_SAMMI</a>
@@ -16,4 +53,3 @@
         </div>
     </nav>
 </div>
-
