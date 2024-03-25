@@ -1,13 +1,50 @@
-﻿@page "/jogo4"
+﻿
+@page "/jogo4"
 
-<div class="container">
-    <h2 class="text-center">Jogos</h2> <!-- Título da página -->
+<h1>Jogo</h1>
 
-    <div class="row justify-content-center mt-4">
-        <div class="col-md-3 mb-4">
-            <button class="btn btn-primary btn-block">
-                <img src="caminho/para/imagem1.jpg" alt="Imagem 4" class="img-fluid"> <!-- Imagem dentro do botão 1 -->
-            </button>
-        </div>
-    </div>
+<div class="question-container">
+    <p>@currentQuestion</p>
 </div>
+
+<div class="button-container">
+
+    @foreach (var option in options)
+    {
+        <button class="option-button" @onclick="() => CheckAnswer(option)">
+            @option
+        </button>
+    }
+</div>
+
+@if (!string.IsNullOrEmpty(message))
+{
+    <p>@message</p>
+}
+
+@code {
+    private string currentQuestion = "Qual é a capital do Brasil?";
+    private string message = "";
+    private List<string> options = new List<string> { "Brasília", "Rio de Janeiro", "São Paulo", "Belém" };
+
+    private void CheckAnswer(string selectedOption)
+    {
+        if (selectedOption == "Brasília")
+        {
+            message = "Parabéns! Você acertou!";
+            NextQuestion();
+        }
+        else
+        {
+            message = "Ops! Resposta incorreta. Tente novamente!";
+        }
+    }
+
+    private void NextQuestion()
+    {
+        currentQuestion = "Qual é a capital da França?";
+        options = new List<string> { "Paris", "Londres", "Berlim", "Roma" };
+        message = "";
+    }
+}
+
