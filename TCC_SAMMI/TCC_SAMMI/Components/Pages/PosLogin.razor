@@ -1,0 +1,29 @@
+﻿@page "/PosLogin"
+@inject NavigationManager NavigationManager
+
+<div class="container">
+    <!-- Conteúdo da página PosLogin -->
+</div>
+
+@code {
+    // Parâmetro indicando se o usuário acabou de se cadastrar
+    [Parameter]
+    public bool Cadastrado { get; set; }
+
+    // Método para verificar se está na página PosLogin
+    private bool IsPosLoginPage()
+    {
+        return NavigationManager.Uri.Contains("/PosLogin");
+    }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        // Se o usuário acabou de se cadastrar, não mostrar o botão "Cadastre-se" no menu
+        if (Cadastrado)
+        {
+            StateHasChanged(); // Força a atualização da renderização do componente
+        }
+    }
+}

@@ -2,7 +2,11 @@
 @inherits LayoutComponentBase
 @inject NavigationManager NavigationManager
 
-@if (!IsCadastroPage())
+@{
+    bool mostrarBotaoCadastro = !IsCadastroPage() && !IsPosLoginPage();
+}
+
+@if (mostrarBotaoCadastro)
 {
     <div class="main">
         <!-- Navigation bar -->
@@ -12,7 +16,7 @@
                     <button class="btn btn-outline-light mr-2">Botão Esquerdo</button> <!-- Botão no canto esquerdo -->
                     <span class="navbar-text">Sammi Games</span> <!-- Texto "Sammi Games" -->
                 </div>
-                
+
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
@@ -34,22 +38,11 @@
     {
         return NavigationManager.Uri.Contains("/cadastro");
     }
+
+    // Método para verificar se está na página PosLogin
+    private bool IsPosLoginPage()
+    {
+        return NavigationManager.Uri.Contains("/PosLogin");
+    }
 }
 
-<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">TCC_SAMMI</a>
-    </div>
-</div>
-
-<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
-
-<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-    </nav>
-</div>
