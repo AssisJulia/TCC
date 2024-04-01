@@ -1,48 +1,55 @@
-<!-- MainLayout.razor -->
-@inherits LayoutComponentBase
-@inject NavigationManager NavigationManager
 
-@{
-    bool mostrarBotaoCadastro = !IsCadastroPage() && !IsPosLoginPage();
-}
+@rendermode InteractiveServer
 
-@if (mostrarBotaoCadastro)
-{
     <div class="main">
-        <!-- Navigation bar -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-            <div class="container">
-                <div class="navbar-brand mr-auto">
-                    <button class="btn btn-outline-light mr-2">Botão Esquerdo</button> <!-- Botão no canto esquerdo -->
-                    <span class="navbar-text">Sammi Games</span> <!-- Texto "Sammi Games" -->
+        <div class="rz-p-sm-12" style="margin-bottom: 2px;">
+            <RadzenMenu style="height: 80px;padding: 0px 40px;justify-content: space-between;">
+                <RadzenMenuItem Style="font-weight: bold;" Text="SAMMI GAMES" Icon="videogame_asset">
+                    <RadzenMenuItem Text="Jogue nossos jogos!" Path="/" Icon="videogame_asset"></RadzenMenuItem>
+                    <RadzenMenuItem Text="Saiba quem somos" Path="/Sobre" Icon="account_circle"></RadzenMenuItem>
+                </RadzenMenuItem>
+                <div style="display: flex;">
+                    @if (!string.IsNullOrEmpty(u.nome))
+                    {
+                        <RadzenMenuItem Text="@u.nome" Icon="account_circle">
+                            <RadzenMenuItem Text="Metricas" Path="/Metricas" Icon="bar_chart"></RadzenMenuItem>
+                            <RadzenMenuItem Text="Sair" Click=@(() => deslogar()) Icon="logout"></RadzenMenuItem>
+                        </RadzenMenuItem>
+                    }
+                    else
+                    {
+                        <RadzenMenuItem Text="Logar" Icon="login" Path="Login"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Cadastrar" Icon="feed" Path="Cadastro"></RadzenMenuItem>
+                    }
                 </div>
-
-                <div class="navbar-collapse collapse">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <NavLink class="btn btn-outline-light mr-2" href="/cadastro">Cadastre-se</NavLink>
-                        </li>
-                        <li class="nav-item">
-                            <img src="caminho/para/sua/logo.png" alt="Ícone" style="height: 30px;"> <!-- Ícone PNG -->
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+            </RadzenMenu>
+        </div>
     </div>
-}
 
 @code {
-    // Método para verificar se está na página de cadastro
-    private bool IsCadastroPage()
+    [Inject]
+    private NavigationManager NavigationManager { get; set; }
+
+    Usuario u = new Usuario();
+
+    protected override void OnInitialized()
     {
-        return NavigationManager.Uri.Contains("/cadastro");
+        Controller con = new Controller();
+        if (con.islogged())
+        {
+            u = con.getuser();    
+        }
+
+        StateHasChanged();
     }
 
-    // Método para verificar se está na página PosLogin
-    private bool IsPosLoginPage()
+    public void deslogar()
     {
-        return NavigationManager.Uri.Contains("/PosLogin");
+        Controller con = new Controller();
+        con.deslogar();
+
+        NavigationManager.NavigateTo("/");
+        StateHasChanged();
     }
 }
 
