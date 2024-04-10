@@ -3,30 +3,33 @@
 
 <RadzenStack AlignItems="AlignItems.Center" Class="rz-p-12" Style="margin-top: -1.5rem;">
     <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0.5rem">
-        <RadzenLabel Text="Escolha um tópico para jogar!" Style="font-size: 28px;margin-bottom: 30px;" />
+        <RadzenLabel Text="SELECIONE SUA IDADE!" Style="font-size: 36px;margin-bottom: 30px; color: white; font-family: 'Comic Sans MS'" />
     </RadzenStack>
 
     <RadzenPanelMenu Click="OnParentClicked" Style="width:600px;font-size: 22px;" Multiple="@multiple">
-        <RadzenPanelMenuItem Text="Matemática" Icon="calculate">
+        <RadzenPanelMenuItem Text="5 ANOS" Icon="sort_by_alpha">
+            <RadzenPanelMenuItem Text="Aprenda o alfabeto!" Path="https://www.educajogos.com.br/jogos-educativos/alfabetizacao/alfabeto-som/#google_vignette" Icon="sd"></RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Text="Som dos animais" Path="https://www.educagaming.com//pt/gamePlay/sons-dos-animais/" Icon="pets"></RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Text="Encontre os paises" Path="/Portugues/paises" Icon="flag"></RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Text="Encontre as frutas" Path="/Portugues/frutas" Icon="apple"></RadzenPanelMenuItem>
+        </RadzenPanelMenuItem>
+        <RadzenPanelMenuItem Text="6 ANOS" Icon="library_books">
+            <RadzenPanelMenuItem Text="Silabas" Path="/Portugues/silabas" Icon="sd"></RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Text="Caça-Palavras" Path="/Portugues/animais" Icon="pets"></RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Text="O que é o que é?" Path="/Portugues/paises" Icon="flag"></RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Text="Encontre os animais" Path="https://www.coquinhos.com/jogo-de-pares-sons-e-nomes-de-animais/play/" Icon="apple"></RadzenPanelMenuItem>
+        </RadzenPanelMenuItem>
+        <RadzenPanelMenuItem Text="7 ANOS" Icon="calculate">
             <RadzenPanelMenuItem Text="Adição" Path="Matematica/adi" Icon="add"></RadzenPanelMenuItem>
             <RadzenPanelMenuItem Text="Subtração" Path="Matematica/sub" Icon="remove"></RadzenPanelMenuItem>
             <RadzenPanelMenuItem Text="Multiplicação" Path="Matematica/mul" Icon="close"></RadzenPanelMenuItem>
             <RadzenPanelMenuItem Text="Divisão " Path="Matematica/div" Icon="percent"></RadzenPanelMenuItem>
         </RadzenPanelMenuItem>
-        <RadzenPanelMenuItem Text="Português" Icon="sort_by_alpha">
+        <RadzenPanelMenuItem Text="8 ANOS" Icon="school">
             <RadzenPanelMenuItem Text="Silabas" Path="/Portugues/silabas" Icon="sd"></RadzenPanelMenuItem>
             <RadzenPanelMenuItem Text="Encontre os animais" Path="/Portugues/animais" Icon="pets"></RadzenPanelMenuItem>
             <RadzenPanelMenuItem Text="Encontre os paises" Path="/Portugues/paises" Icon="flag"></RadzenPanelMenuItem>
             <RadzenPanelMenuItem Text="Encontre as frutas" Path="/Portugues/frutas" Icon="apple"></RadzenPanelMenuItem>
-        </RadzenPanelMenuItem>
-        <RadzenPanelMenuItem Text="Ciências" Icon="science">
-            <RadzenPanelMenuItem Text="Física" Path="" Icon="language"></RadzenPanelMenuItem>
-            <RadzenPanelMenuItem Text="Quimica" Path="" Icon="science"></RadzenPanelMenuItem>
-            <RadzenPanelMenuItem Text="Biologia" Path="" Icon="biotech"></RadzenPanelMenuItem>
-        </RadzenPanelMenuItem>
-        <RadzenPanelMenuItem Text="Historia" Icon="book">
-            <RadzenPanelMenuItem Text="Historia Brasileira" Path="" Icon="flag"></RadzenPanelMenuItem>
-            <RadzenPanelMenuItem Text="Historia Mundial" Path="" Icon="flag"></RadzenPanelMenuItem>
         </RadzenPanelMenuItem>
     </RadzenPanelMenu>
 
