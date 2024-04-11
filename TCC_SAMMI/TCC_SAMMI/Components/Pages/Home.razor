@@ -1,22 +1,25 @@
 ﻿@rendermode InteractiveServer
 @page "/"
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Sriracha&display=swap" rel="stylesheet">
+
 <RadzenStack AlignItems="AlignItems.Center" Class="rz-p-12" Style="margin-top: -1.5rem;">
     <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0.5rem">
-        <RadzenLabel Text="SELECIONE SUA IDADE!" Style="font-size: 36px;margin-bottom: 30px; color: white; font-family: 'Comic Sans MS'" />
+        <RadzenLabel Text="SELECIONE SUA IDADE!" Style="font-size: 36px;margin-bottom: 30px;"/>
     </RadzenStack>
-
-    <RadzenPanelMenu Click="OnParentClicked" Style="width:600px;font-size: 22px;" Multiple="@multiple">
+    <RadzenPanelMenu Click="OnParentClicked" Style="width:600px;font-size: 22px; background-color: #EFEFEF; --rz-panel-menu-item-background-color: #F7F7F7" Multiple="@multiple">
         <RadzenPanelMenuItem Text="5 ANOS" Icon="sort_by_alpha">
-            <RadzenPanelMenuItem Text="Aprenda o alfabeto!" Path="https://www.educajogos.com.br/jogos-educativos/alfabetizacao/alfabeto-som/#google_vignette" Icon="sd"></RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Text="Aprenda o alfabeto!" Path="https://www.educajogos.com.br/jogos-educativos/alfabetizacao/alfabeto-som/#google_vignette"  Icon="sd"></RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Text="Alfabeto ilustrado" Path="https://wordwall.net/pt/resource/27173626/portuguese-language/alfabeto-ilustrado-animais-smartkids" Icon="apple"></RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Text="Digite as letras" Path="https://www.coquinhos.com/aprenda-o-teclado-no-natal/play/" Icon="flag"></RadzenPanelMenuItem>
             <RadzenPanelMenuItem Text="Som dos animais" Path="https://www.educagaming.com//pt/gamePlay/sons-dos-animais/" Icon="pets"></RadzenPanelMenuItem>
-            <RadzenPanelMenuItem Text="Encontre os paises" Path="/Portugues/paises" Icon="flag"></RadzenPanelMenuItem>
-            <RadzenPanelMenuItem Text="Encontre as frutas" Path="/Portugues/frutas" Icon="apple"></RadzenPanelMenuItem>
         </RadzenPanelMenuItem>
         <RadzenPanelMenuItem Text="6 ANOS" Icon="library_books">
             <RadzenPanelMenuItem Text="Silabas" Path="/Portugues/silabas" Icon="sd"></RadzenPanelMenuItem>
-            <RadzenPanelMenuItem Text="Caça-Palavras" Path="/Portugues/animais" Icon="pets"></RadzenPanelMenuItem>
-            <RadzenPanelMenuItem Text="O que é o que é?" Path="/Portugues/paises" Icon="flag"></RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Text="Caça-Palavras" Path="https://www.coquinhos.com/caca-palavras-outono/play/" Icon="pets"></RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Text="Conecte as palavras" Path="https://www.coquinhos.com/connections-conexoes-de-palavras-para-criancas/play/" Icon="flag"></RadzenPanelMenuItem>
             <RadzenPanelMenuItem Text="Encontre os animais" Path="https://www.coquinhos.com/jogo-de-pares-sons-e-nomes-de-animais/play/" Icon="apple"></RadzenPanelMenuItem>
         </RadzenPanelMenuItem>
         <RadzenPanelMenuItem Text="7 ANOS" Icon="calculate">
@@ -26,7 +29,7 @@
             <RadzenPanelMenuItem Text="Divisão " Path="Matematica/div" Icon="percent"></RadzenPanelMenuItem>
         </RadzenPanelMenuItem>
         <RadzenPanelMenuItem Text="8 ANOS" Icon="school">
-            <RadzenPanelMenuItem Text="Silabas" Path="/Portugues/silabas" Icon="sd"></RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Text="Hora de contar!" Path="https://wordwall.net/pt/resource/33909204/matem%C3%A1tica/atividade-soma-com-frutas" Icon="sd"></RadzenPanelMenuItem>
             <RadzenPanelMenuItem Text="Encontre os animais" Path="/Portugues/animais" Icon="pets"></RadzenPanelMenuItem>
             <RadzenPanelMenuItem Text="Encontre os paises" Path="/Portugues/paises" Icon="flag"></RadzenPanelMenuItem>
             <RadzenPanelMenuItem Text="Encontre as frutas" Path="/Portugues/frutas" Icon="apple"></RadzenPanelMenuItem>
