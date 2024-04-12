@@ -3,10 +3,13 @@
 
     <div class="main">
     <RadzenMenu style="height: 80px;padding: 0px 40px;justify-content: space-between; background-color: #28E1F6">
-                <RadzenMenuItem Style="font-weight: bold;" Text="SAMMI GAMES" Icon="videogame_asset">
+        <div style="display: flex; align-items: center;">
+            <img src="logoSammi.png" style="width: 50px; height: 50px; margin-right: 10px;">
+                <RadzenMenuItem Style="font-weight: bold;" Text="SAMMI GAMES">
                     <RadzenMenuItem Text="Jogue nossos jogos!" Path="/" Icon="videogame_asset"></RadzenMenuItem>
                     <RadzenMenuItem Text="Saiba quem somos" Path="/Sobre" Icon="account_circle"></RadzenMenuItem>
                 </RadzenMenuItem>
+        </div>
                 <div style="display: flex;">
                     @if (!string.IsNullOrEmpty(u.nome))
                     {

@@ -8,11 +8,10 @@
         <RadzenStack Gap="0">
             <RadzenText TextStyle="TextStyle.Overline" class="rz-display-flex rz-mt-2 rz-my-0">Nome</RadzenText>
             <RadzenText TextStyle="TextStyle.Body1"><b>@(user.nome)</b></RadzenText>
-            <RadzenText TextStyle="TextStyle.Overline" class="rz-display-flex rz-mt-4 rz-mb-0">Data</RadzenText>
-            <RadzenText TextStyle="TextStyle.Body1"><b>@(user.datahora)</b></RadzenText>
         </RadzenStack>
     </RadzenStack>
-    <RadzenCard class="rz-background-color-primary-light rz-shadow-0 rz-border-radius-0 rz-p-8" style="margin: 1rem calc(-1 * var(--rz-card-padding));">
+<div>
+    <RadzenCard Style="background-color: #28E1F6">
         <RadzenText TextStyle="TextStyle.H6" class="rz-color-on-primary-light"><strong>Informações de Matematica</strong></RadzenText>
         <RadzenRow RowGap="0">
             <RadzenColumn SizeSM="4">
@@ -29,7 +28,10 @@
             </RadzenColumn>
         </RadzenRow>
     </RadzenCard>
-    <RadzenCard class="rz-background-color-primary-light rz-shadow-0 rz-border-radius-0 rz-p-8" style="margin: 1rem calc(-1 * var(--rz-card-padding));">
+</div>
+
+<div>
+    <RadzenCard Style="background-color: #28E1F6">
         <RadzenText TextStyle="TextStyle.H6" class="rz-color-on-primary-light"><strong>Informações de Português</strong></RadzenText>
         <RadzenRow RowGap="0">
             <RadzenColumn SizeSM="4">
@@ -46,6 +48,7 @@
             </RadzenColumn>
         </RadzenRow>
     </RadzenCard>
+</div>
     <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.End" Gap="0">
         <RadzenButton Variant="Variant.Text" class="rz-text-secondary-color" Text="Voltar" />
     </RadzenStack>

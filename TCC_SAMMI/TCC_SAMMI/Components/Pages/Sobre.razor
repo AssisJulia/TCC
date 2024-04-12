@@ -4,25 +4,30 @@
 
 <RadzenStack AlignItems="AlignItems.Center" Class="rz-l-12">
     <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0.5rem">
-        <RadzenLabel Text="Saiba um puco mais sobre nós!" Style="font-size: 28px;margin-bottom: 30px;" />
+        <RadzenLabel Text="Saiba um pouco mais sobre nós!" Style="font-size: 28px;margin-bottom: 30px;" />
     </RadzenStack>
-
-    <RadzenAccordion Style="width: 50%">
-        <Items>
-            <RadzenAccordionItem Text="Quem somos" Icon="group" CollapseTitle="Nossa historia.">
-                Somos um grupo de estudantes atualemnte no tercero semestre do curso de desenvolvimento de sistemas da ETEC de Matão - SP.
-            </RadzenAccordionItem>
-            <RadzenAccordionItem Text="Missão" Icon="account_box" CollapseTitle="Nossa Missão.">
-                Entendemos como a nossa missão a dificil tarefa de facilitar a vida de estudantes do ensino fundamental.
-            </RadzenAccordionItem>
-            <RadzenAccordionItem Text="Visão" Icon="visibility" CollapseTitle="Nossa Visão.">
-                Acreditamos que com a adesão desse projeto a qualidade de ensino poderá ter uma significativa melhora, tanto para os alunos quanto para os professores.
-            </RadzenAccordionItem>
-            <RadzenAccordionItem Text="Valores" Icon="accessibility" CollapseTitle="Nossos valores.">
-                Para alcançar nossos objetivos seguimos com nossos principios, de sempre nos basear em honestidade, transparência e competência.
-            </RadzenAccordionItem>
-        </Items>
-    </RadzenAccordion>
+    <RadzenPanelMenu Style="width: 50%; background-color: #EFEFEF;  --rz-panel-menu-item-background-color: #F7F7F7">
+            <RadzenPanelMenuItem Text="Quem somos" Icon="group" CollapseTitle="Nossa historia.">
+                <RadzenPanelMenuItem
+                    Text="Somos Gabrieli Letícia, Julia Assis, Miguel Oliveira, Murilo Gouveia e Sabrina Laura, um grupo de estudantes da ETEC Sylvio de Mattos Carvalho, de Matão, SP. Este projeto é destinado ao Trabalho de Conclusão de Curso (TCC) do ano de 2024.">
+                </RadzenPanelMenuItem>
+            </RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Text="Missão" Icon="account_box" CollapseTitle="Nossa Missão.">
+                <RadzenPanelMenuItem
+                    Text= "Este site contêm jogos educativos destinados a crianças de 4 a 8 anos, com o objetivo de estimular seu aprendizado e desenvolver o interesse das mesmas pelas matérias de português e matemática, auxiliando o desenvolvimento intelectual e evitando com mais estudantes percam processos importantes em sua formação.">
+                </RadzenPanelMenuItem>
+            </RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Text="Visão" Icon="visibility" CollapseTitle="Nossa Visão.">
+                <RadzenPanelMenuItem
+                    Text= "Acreditamos que este ´projeto auxiliará muitos professores com a passagem de apredizado para crianças, tornando as aulas mais divertidas e empolgantes, ao mesmo tempo que acessível as escolas.">
+                </RadzenPanelMenuItem>
+            </RadzenPanelMenuItem>
+            <RadzenPanelMenuItem Text="Valores" Icon="accessibility" CollapseTitle="Nossos valores.">
+                 <RadzenPanelMenuItem
+                    Text= "Para alcançar nossos objetivos seguimos com nossos principios, de sempre nos basear em honestidade, transparência e competência.">
+                 </RadzenPanelMenuItem>
+            </RadzenPanelMenuItem>
+    </RadzenPanelMenu>
 
 </RadzenStack>
 
