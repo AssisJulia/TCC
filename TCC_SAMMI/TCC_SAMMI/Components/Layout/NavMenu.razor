@@ -14,7 +14,7 @@
                     @if (!string.IsNullOrEmpty(u.nome))
                     {
                         <RadzenMenuItem Text="@u.nome" Icon="account_circle">
-                            <RadzenMenuItem Text="Metricas" Path="/Metricas" Icon="bar_chart"></RadzenMenuItem>
+                            <RadzenMenuItem Text="Pontos" Path="/Pontos" Icon="bar_chart"></RadzenMenuItem>
                             <RadzenMenuItem Text="Sair" Click=@(() => deslogar()) Icon="logout"></RadzenMenuItem>
                         </RadzenMenuItem>
                     }
