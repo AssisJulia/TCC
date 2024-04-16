@@ -4,7 +4,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,24 +13,24 @@
 <RadzenCard Class="rz-my-12 rz-mx-auto" Style="max-width: 420px">
     <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.Start" Gap="1rem" Class="rz-p-4">
         <RadzenStack Gap="0">
-            <RadzenText TextStyle="TextStyle.Overline" class="rz-display-flex rz-mt-2 rz-my-0">Nome</RadzenText>
-            <RadzenText Style="font-family: 'Lilita One', sans-serif; font-size: 36px"><b>@(user.nome)</b></RadzenText>
+            <RadzenText Style="font-family: 'Ubuntu', sans-serif; font-size: 22px">Nome</RadzenText>
+            <RadzenText Style="font-family: 'Ubuntu', sans-serif; font-size: 36px"><b>@(user.nome)</b></RadzenText>
         </RadzenStack>
     </RadzenStack>
     <RadzenCard Style="background-color: #28E1F6">
-        <RadzenText TextStyle="TextStyle.H6" class="rz-color-on-primary-light"><strong>7 ANOS</strong></RadzenText>
+        <RadzenText Style="font-family: 'Ubuntu', sans-serif; font-size: 36px; color: white"><strong>7 anos</strong></RadzenText>
         <RadzenRow RowGap="0">
             <RadzenColumn SizeSM="4">
-                <RadzenText > Adição</RadzenText>
-                <RadzenText TextStyle="TextStyle.Body1" class="rz-color-on-primary-light"><b>@(user.matematica.adi)</b></RadzenText>
-                <RadzenText TextStyle="TextStyle.Overline" class="rz-color-on-primary-light rz-display-flex rz-mt-4 rz-mb-0">Subtração</RadzenText>
-                <RadzenText TextStyle="TextStyle.Body1" class="rz-color-on-primary-light"><b>@(user.matematica.sub)</b></RadzenText>
+                <RadzenText Style="font-family: 'Ubuntu', sans-serif; font-size: 18px; color: white"> Adição </RadzenText>
+                <RadzenText Style="font-family: 'Ubuntu', sans-serif; font-size: 22px"> <b>@(user.matematica.adi)</b></RadzenText>
+                <RadzenText Style="font-family: 'Ubuntu', sans-serif; font-size: 18px; color: white"> Subtração </RadzenText>
+                <RadzenText Style="font-family: 'Ubuntu', sans-serif; font-size: 22px"><b>@(user.matematica.sub)</b></RadzenText>
             </RadzenColumn>
             <RadzenColumn SizeSM="8">
-                <RadzenText TextStyle="TextStyle.Overline" class="rz-color-on-primary-light rz-display-flex rz-mt-4 rz-mb-0">Divisão</RadzenText>
-                <RadzenText TextStyle="TextStyle.Body1" class="rz-color-on-primary-light"><b>@(user.matematica.div)</b></RadzenText>
-                <RadzenText TextStyle="TextStyle.Overline" class="rz-color-on-primary-light rz-display-flex rz-mt-4 rz-mb-0">Multiplcação</RadzenText>
-                <RadzenText TextStyle="TextStyle.Body1" class="rz-color-on-primary-light"><b>@(user.matematica.mul)</b></RadzenText>
+                <RadzenText Style="font-family: 'Ubuntu', sans-serif; font-size: 18px; color: white"> Divisão </RadzenText>
+                <RadzenText Style="font-family: 'Ubuntu', sans-serif; font-size: 22px"><b>@(user.matematica.div)</b></RadzenText>
+                <RadzenText Style="font-family: 'Ubuntu', sans-serif; font-size: 18px; color: white"> Multiplicação </RadzenText>
+                <RadzenText Style="font-family: 'Ubuntu', sans-serif; font-size: 22px"><b>@(user.matematica.mul)</b></RadzenText>
             </RadzenColumn>
         </RadzenRow>
     </RadzenCard>
