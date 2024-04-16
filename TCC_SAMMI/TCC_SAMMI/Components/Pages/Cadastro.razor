@@ -4,17 +4,26 @@
 @rendermode InteractiveServer
 @page "/Cadastro"
 
-<RadzenCard class="rz-my-12 rz-mx-auto rz-p-4 rz-p-md-12" style="max-width: 600px;">
-    <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.End" JustifyContent="JustifyContent.Center" Wrap="FlexWrap.Wrap" Gap="1rem" Class="rz-p-sm-12">
-        <RadzenFormField Text="Usuario" Variant="@variant">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+<RadzenCard class="rz-my-12 rz-mx-auto rz-p-4 rz-p-md-12" style="max-width: 600px">
+    <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.Center" Wrap="FlexWrap.Wrap" Gap="1rem" Class="rz-p-sm-12" style="margin-top: -40px;">
+        <RadzenLabel Text="Bem-Vindo(a) ao Sammi Games!" Style="font-family: 'Lilita One', sans-serif; font-size: 36px; margin-bottom: 30px; text-align: center; width: 100%;"/>
+        <RadzenFormField Text="Usuario" Variant="@variant" Style="font-family: 'Ubuntu', sans-serif;">
             <ChildContent>
-                <RadzenTextBox @bind-Value="@user" />
+                <RadzenTextBox @bind-Value="@user"/>
             </ChildContent>
             <End>
                 <RadzenIcon Icon="account_circle" />
             </End>
         </RadzenFormField>
-        <RadzenFormField Text="E-mail" Variant="@variant">
+        <RadzenFormField Text="E-mail" Variant="@variant" Style="font-family: 'Ubuntu', sans-serif;">
             <ChildContent>
                 <RadzenTextBox @bind-Value="@email" />
             </ChildContent>
@@ -22,22 +31,22 @@
                 <RadzenIcon Icon="mail" />
             </End>
         </RadzenFormField>
-        <RadzenFormField Text="Senha" Variant="@variant">
+        <RadzenFormField Text="Senha" Variant="@variant" Style="font-family: 'Ubuntu', sans-serif;">
             <ChildContent>
                 <RadzenTextBox @bind-Value="@senha" Visible="@(!password)" />
                 <RadzenPassword @bind-Value="@senha" Visible="@password" />
             </ChildContent>
             <End>
-                <RadzenButton Icon="@(password ? "visibility" : "visibility_off")" Click="TogglePassword" Variant="Variant.Text" Size="ButtonSize.Small" />
+                <RadzenButton Icon="@(password ? "visibility" : "visibility_off")" Click="TogglePassword" Variant="Variant.Text" Size="ButtonSize.Small" Style="color: black;"/>
             </End>
         </RadzenFormField>
-        <RadzenFormField Text="Conf. Senha" Variant="@variant">
+        <RadzenFormField Text="Confirmar Senha" Variant="@variant" Style="font-family: 'Ubuntu', sans-serif;">
             <ChildContent>
                 <RadzenTextBox @bind-Value="@confsenha" Visible="@(!password)" />
                 <RadzenPassword @bind-Value="@confsenha" Visible="@password" />
             </ChildContent>
             <End>
-                <RadzenButton Icon="@(password ? "visibility" : "visibility_off")" Click="TogglePassword" Variant="Variant.Text" Size="ButtonSize.Small" />
+                <RadzenButton Icon="@(password ? "visibility" : "visibility_off")" Click="TogglePassword" Variant="Variant.Text" Size="ButtonSize.Small" Style="color: black;"/>
             </End>
         </RadzenFormField>
     </RadzenStack>
@@ -51,15 +60,15 @@
 
     <div class="rz-p-12 rz-text-align-center" style="padding: 1rem!important;">
         <RadzenSwitch @bind-Value=@sw Change=@(args => OnChange(args, "Switch")) InputAttributes="@(new Dictionary<string,object>(){ { "aria-label", "Switch value" }})" />
-        <RadzenLabel Text="Receber atualizaçoes por e-mail?" Component="CheckBox1" Style="margin-left: 8px; vertical-align: middle;" />
+        <RadzenLabel Text="Receber atualizaçoes por e-mail?" Component="CheckBox1" Style="margin-left: 8px; vertical-align: middle; font-family: 'Ubuntu', sans-serif;" />
     </div>
 
     <div class="rz-p-12 rz-text-align-center" style="padding: 1rem!important;">
-        <RadzenButton Variant="Variant.Flat" Click=@(() => cadastra()) Text="Cadastrar" ButtonStyle="ButtonStyle.Primary" />
+        <RadzenButton Variant="Variant.Flat" Click=@(() => cadastra()) Text="Cadastrar" Style="font-family: 'Ubuntu', sans-serif; background-color: #217011" />
     </div>
 
     <div class="rz-p-12 rz-text-align-center" style="padding: 1rem!important;">
-        <RadzenLabel Path="Cadastro" Text="Já possui uma conta? Logue-se agora!" />
+        <RadzenLabel Path="Cadastro" Text="Já possui uma conta? Logue-se agora!" Style="font-family: 'Ubuntu', sans-serif;"/>
     </div>
 </RadzenCard>
 
