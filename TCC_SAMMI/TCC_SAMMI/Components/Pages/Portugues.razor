@@ -26,8 +26,8 @@
     </div>
 
     <div class="rz-p-12 rz-text-align-center" style="margin: 2rem -2rem -2rem -2rem;">
-        <RadzenButton Variant="Variant.Flat" Click=@(() => voltar()) Style="margin-right: 240px" Text="Voltar" ButtonStyle="ButtonStyle.Primary" />
-        <RadzenButton Variant="Variant.Flat" Click=@(() => setquestion()) Text="Proxima" ButtonStyle="ButtonStyle.Primary" />
+        <RadzenButton Variant="Variant.Flat" Click=@(() => voltar()) Style="margin-right: 240px; background-color: #217011" Text="Voltar" />
+        <RadzenButton Variant="Variant.Flat" Click=@(() => setquestion()) Text="Proxima" Style="background-color: #217011" />
     </div>
 
 </RadzenCard>
@@ -170,7 +170,7 @@
                 for (int c = 0; c < 4; c++)
                 {
                     string silabaaleatoria = alfabeto[rnd.Next(1, alfabeto.Count())] + vogais[rnd.Next(1, vogais.Count())];
-                    buttons.Add(new ButtonModel { Id = c, alternativa = silabaaleatoria, Style = "" });
+                    buttons.Add(new ButtonModel { Id = c, alternativa = silabaaleatoria, Style = "background-color: #50A43F"});
                 }
 
                 buttons[rnd.Next(0, 4)].alternativa = resposta;
