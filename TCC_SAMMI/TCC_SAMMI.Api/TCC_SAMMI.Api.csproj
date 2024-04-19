@@ -8,14 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Json.Net" Version="1.0.33" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="Radzen.Blazor" Version="4.28.9" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\TCC_SAMMI.CrossCutting\TCC_SAMMI.CrossCutting.csproj" />
+    <ProjectReference Include="..\TCC_SAMMI.Data\TCC_SAMMI.Data.csproj" />
   </ItemGroup>
 
 </Project>
