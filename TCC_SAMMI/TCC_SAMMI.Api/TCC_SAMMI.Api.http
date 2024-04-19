@@ -1,6 +1,6 @@
-@TCC_SAMMI.Api_HostAddress = http://localhost:5267
+@TCC_SAMMI.API_HostAddress = http://localhost:5080
 
-GET {{TCC_SAMMI.Api_HostAddress}}/weatherforecast/
+GET {{TCC_SAMMI.API_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
