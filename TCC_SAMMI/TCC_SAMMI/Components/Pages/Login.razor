@@ -13,7 +13,7 @@
 <RadzenCard class="rz-my-12 rz-mx-auto rz-p-4 rz-p-md-12" style="max-width: 600px;">
     <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.End" JustifyContent="JustifyContent.Center" Wrap="FlexWrap.Wrap" Gap="1rem" Class="rz-p-sm-12" style="margin-top: -40px;">
         <RadzenLabel Text="Você Está de Volta!" Style="font-family: 'Lilita One', sans-serif; font-size: 36px; margin-bottom: 30px; text-align: center; width: 100%;" />
-        <RadzenFormField Text="Usuario" Variant="Variant.Outlined" Style="font-family: 'Ubuntu', sans-serif;">
+        <RadzenFormField Text="Usuário" Variant="Variant.Outlined" Style="font-family: 'Ubuntu', sans-serif;">
             <ChildContent>
                 <RadzenTextBox @bind-Value="@value" />
             </ChildContent>
@@ -42,7 +42,7 @@
 
     <div class="rz-p-12 rz-text-align-center" style="padding: 1rem!important;">
         <RadzenSwitch @bind-Value=@sw Change=@(args => OnChange(args, "Switch")) InputAttributes="@(new Dictionary<string,object>(){ { "aria-label", "Switch value" }})" />
-        <RadzenLabel Text="Me manenha logado" Component="CheckBox1" Style="margin-left: 8px; vertical-align: middle; font-family: 'Ubuntu', sans-serif;" />
+        <RadzenLabel Text="Me mantenha logado" Component="CheckBox1" Style="margin-left: 8px; vertical-align: middle; font-family: 'Ubuntu', sans-serif;" />
     </div>
 
     <div class="rz-p-12 rz-text-align-center" style="padding: 1rem!important;">
@@ -50,8 +50,10 @@
     </div>
 
     <div class="rz-p-12 rz-text-align-center" style="padding: 1rem!important;">
-        <RadzenLabel Path="Login" Text="Aida não possui uma conta? Cadastre-se agora!" Style="font-family: 'Ubuntu', sans-serif;"/>
-    </div>
+        <a href="/Cadastro"
+            <RadzenLabel Path="Login" Text="Ainda não possui uma conta? Cadastre-se agora!" Style="font-family: 'Ubuntu', sans-serif;  cursor: pointer; color: black"/>
+        </a>
+        </div>
 </RadzenCard>
 
 @code {

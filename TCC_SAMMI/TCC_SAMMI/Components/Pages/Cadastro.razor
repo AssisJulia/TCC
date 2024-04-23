@@ -15,7 +15,7 @@
 <RadzenCard class="rz-my-12 rz-mx-auto rz-p-4 rz-p-md-12" style="max-width: 600px">
     <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.Center" Wrap="FlexWrap.Wrap" Gap="1rem" Class="rz-p-sm-12" style="margin-top: -40px;">
         <RadzenLabel Text="Bem-Vindo(a) ao Sammi Games!" Style="font-family: 'Lilita One', sans-serif; font-size: 36px; margin-bottom: 30px; text-align: center; width: 100%;"/>
-        <RadzenFormField Text="Usuario" Variant="@variant" Style="font-family: 'Ubuntu', sans-serif;">
+        <RadzenFormField Text="Usuário" Variant="@variant" Style="font-family: 'Ubuntu', sans-serif;">
             <ChildContent>
                 <RadzenTextBox @bind-Value="@user"/>
             </ChildContent>
@@ -68,8 +68,10 @@
     </div>
 
     <div class="rz-p-12 rz-text-align-center" style="padding: 1rem!important;">
-        <RadzenLabel Path="Cadastro" Text="Já possui uma conta? Logue-se agora!" Style="font-family: 'Ubuntu', sans-serif;"/>
-    </div>
+         <a href="/Login">
+            <RadzenLabel Text="Já possui uma conta? Faça login!" Style="font-family: 'Ubuntu', sans-serif; cursor: pointer; color: black"/>
+        </a>
+        </div>
 </RadzenCard>
 
 @code {
