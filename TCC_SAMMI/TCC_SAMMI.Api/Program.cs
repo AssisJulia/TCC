@@ -32,7 +32,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.UseHttpsRedirection();
 
-#region Endpoints de Usu�rios
+#region Endpoints de Usuários
 
 app.MapGet("/usuario", (TCC_SAMMIContext context) =>
 {
@@ -46,18 +46,18 @@ app.MapGet("/usuario", (TCC_SAMMIContext context) =>
 })
     .WithOpenApi(operation =>
     {
-        operation.Description = "Endpoint para obter todos os usu�rios cadastrados";
-        operation.Summary = "Listar todos os Usu�rios";
+        operation.Description = "Endpoint para obter todos os usuários cadastrados";
+        operation.Summary = "Listar todos os Usuários";
         return operation;
     })
-    .WithTags("Usu�rios")
+    .WithTags("Usuários")
     .RequireAuthorization();
 
 app.MapGet("/usuario/{usuarioId}", (TCC_SAMMIContext context, Guid usuarioId) =>
 {
     var usuario = context.UsuariosSet.Find(usuarioId);
     if (usuario is null)
-        return Results.BadRequest("Usu�rio n�o Localizado.");
+        return Results.BadRequest("Usuário não Localizado.");
 
     var usuarioDto = new UsuarioObterResponse
     {
@@ -70,12 +70,12 @@ app.MapGet("/usuario/{usuarioId}", (TCC_SAMMIContext context, Guid usuarioId) =>
 })
     .WithOpenApi(operation =>
     {
-        operation.Description = "Endpoint para obter um usu�rio com base no ID informado";
-        operation.Summary = "Obter um Usu�rio";
-        operation.Parameters[0].Description = "Id do Usu�rio";
+        operation.Description = "Endpoint para obter um usuário com base no ID informado";
+        operation.Summary = "Obter um Usuário";
+        operation.Parameters[0].Description = "Id do Usuário";
         return operation;
     })
-    .WithTags("Usu�rios")
+    .WithTags("Usuários")
     .RequireAuthorization();
 
 app.MapPost("/usuario", (TCC_SAMMIContext context, UsuarioAdicionarRequest usuarioAdicionarRequest) =>
@@ -83,13 +83,13 @@ app.MapPost("/usuario", (TCC_SAMMIContext context, UsuarioAdicionarRequest usuar
     try
     {
         if (usuarioAdicionarRequest.EmailLogin != usuarioAdicionarRequest.EmailLoginConfirmacao)
-            return Results.BadRequest("Email de Login n�o Confere.");
+            return Results.BadRequest("Email de Login não Confere.");
 
         if (usuarioAdicionarRequest.Senha != usuarioAdicionarRequest.SenhaConfirmacao)
-            return Results.BadRequest("Senha n�o Confere.");
+            return Results.BadRequest("Senha não Confere.");
 
         if (context.UsuariosSet.Any(p => p.EmailLogin == usuarioAdicionarRequest.EmailLogin))
-            return Results.BadRequest("Email j� utilizado para Login em outro Usu�rio.");
+            return Results.BadRequest("Email já utilizado para Login em outro Usuário.");
 
         var usuario = new Usuario(
             usuarioAdicionarRequest.Nome,
@@ -99,7 +99,7 @@ app.MapPost("/usuario", (TCC_SAMMIContext context, UsuarioAdicionarRequest usuar
         context.UsuariosSet.Add(usuario);
         context.SaveChanges();
 
-        return Results.Created("Created", $"Usu�rio Registrado com Sucesso. {usuario.Id}");
+        return Results.Created("Created", $"Usuário Registrado com Sucesso. {usuario.Id}");
     }
     catch (Exception ex)
     {
@@ -108,12 +108,12 @@ app.MapPost("/usuario", (TCC_SAMMIContext context, UsuarioAdicionarRequest usuar
 })
     .WithOpenApi(operation =>
     {
-        operation.Description = "Endpoint para Cadastrar um Usu�rio";
-        operation.Summary = "Novo Usu�rio";
+        operation.Description = "Endpoint para Cadastrar um Usuário";
+        operation.Summary = "Novo Usuário";
         return operation;
     })
-    .WithTags("Usu�rios")
-    .RequireAuthorization();
+    .WithTags("Usuários");
+    //.RequireAuthorization();
 
 app.MapPut("/usuario/alterar-senha", (TCC_SAMMIContext context, UsuarioAtualizarRequest usuarioAtualizarRequest) =>
 {
@@ -121,7 +121,7 @@ app.MapPut("/usuario/alterar-senha", (TCC_SAMMIContext context, UsuarioAtualizar
     {
         var usuario = context.UsuariosSet.Find(usuarioAtualizarRequest.Id);
         if (usuario is null)
-            return Results.BadRequest("Usu�rio n�o Localizado");
+            return Results.BadRequest("Usuário não Localizado");
 
         if (usuarioAtualizarRequest.SenhaAtual.EncryptPassword() == usuario.Senha)
         {
@@ -129,10 +129,10 @@ app.MapPut("/usuario/alterar-senha", (TCC_SAMMIContext context, UsuarioAtualizar
             context.UsuariosSet.Update(usuario);
             context.SaveChanges();
 
-            return Results.Ok("Senha Altera com Sucesso.");
+            return Results.Ok("Senha Alterada com Sucesso.");
         }
 
-        return Results.BadRequest("Ocorreu um Problema ao Alterar a Senha do Usu�rio.");
+        return Results.BadRequest("Ocorreu um Problema ao Alterar a Senha do Usuário.");
     }
     catch (Exception ex)
     {
@@ -141,22 +141,22 @@ app.MapPut("/usuario/alterar-senha", (TCC_SAMMIContext context, UsuarioAtualizar
 })
     .WithOpenApi(operation =>
     {
-        operation.Description = "Endpoint para Alterar a Senha do Usu�rio";
+        operation.Description = "Endpoint para Alterar a Senha do Usuário";
         operation.Summary = "Alterar Senha";
         return operation;
     })
-    .WithTags("Usu�rios")
+    .WithTags("Usuários")
     .RequireAuthorization();
 
 #endregion
 
-#region Autentica��o
+#region Autenticação
 
 app.MapPost("/autenticar", (TCC_SAMMIContext context, UsuarioAutenticarRequest usuarioAutenticarRequest) =>
     {
         var usuario = context.UsuariosSet.FirstOrDefault(p => p.EmailLogin == usuarioAutenticarRequest.EmailLogin && p.Senha == usuarioAutenticarRequest.Senha.EncryptPassword());
         if (usuario is null)
-            return Results.BadRequest("N�o foi Poss�vel Efetuar o Login.");
+            return Results.BadRequest("Não foi Possível Efetuar o Login.");
 
         var claims = new[]
         {
@@ -164,12 +164,12 @@ app.MapPost("/autenticar", (TCC_SAMMIContext context, UsuarioAutenticarRequest u
             new Claim(ClaimTypes.Name, usuario.Nome)
         };
 
-        //Recebe uma inst�ncia da Classe SymmetricSecurityKey
-        //armazenando a chave de criptografia usada na cria��o do Token
+        //Recebe uma instância da Classe SymmetricSecurityKey
+        //armazenando a chave de criptografia usada na criação do Token
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("{ccdc511d-23f0-4a30-995e-ebc3658e901d}"));
 
         //Recebe um objeto do tipo SigninCredentials contendo a chave de
-        //criptografia e o algoritimo de seguran�a empregados na gera��o
+        //criptografia e o algoritimo de seguran�a empregados na geração
         //de assinaturas digitais para tokens
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
@@ -190,11 +190,11 @@ app.MapPost("/autenticar", (TCC_SAMMIContext context, UsuarioAutenticarRequest u
     })
     .WithOpenApi(operation =>
     {
-        operation.Description = "Endpoint para Autenticar um Usu�rio na API";
-        operation.Summary = "Autenticar Usu�rio";
+        operation.Description = "Endpoint para Autenticar um Usuário na API";
+        operation.Summary = "Autenticar Usuário";
         return operation;
     })
-    .WithTags("Seguran�a");
+    .WithTags("Segurança");
 
 #endregion
 
