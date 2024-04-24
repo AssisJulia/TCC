@@ -1,18 +1,8 @@
 {
-  "nome": "gustavo",
-  "email": "gustavo@gmail.com",
-  "senha": "123",
-  "datahora": "01/04/2024 00:00:00",
-  "matematica": {
-    "adi": 11,
-    "sub": 3,
-    "mul": 0,
-    "div": 0
-  },
-  "portugues": {
-    "silabas": 5,
-    "animais": 0,
-    "paises": 0,
-    "frutas": 0
-  }
+  "nome": null,
+  "email": null,
+  "senha": null,
+  "datahora": null,
+  "matematica": null,
+  "portugues": null
 }
