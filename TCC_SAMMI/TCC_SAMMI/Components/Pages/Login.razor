@@ -41,8 +41,8 @@
     }
 
     <div class="rz-p-12 rz-text-align-center" style="padding: 1rem!important;">
-        <RadzenSwitch @bind-Value=@sw Change=@(args => OnChange(args, "Switch")) InputAttributes="@(new Dictionary<string,object>(){ { "aria-label", "Switch value" }})" />
-        <RadzenLabel Text="Me mantenha logado" Component="CheckBox1" Style="margin-left: 8px; vertical-align: middle; font-family: 'Ubuntu', sans-serif;" />
+        <RadzenSwitch @bind-Value=@sw Change=@(args => OnChange(args, "Switch")) InputAttributes="@(new Dictionary<string,object>(){ { "aria-label", "Switch value" }})"/>
+        <RadzenLabel Text="Me mantenha logado" Component="CheckBox1" Style="margin-left: 8px; vertical-align: middle; font-family: 'Ubuntu', sans-serif;"/>
     </div>
 
     <div class="rz-p-12 rz-text-align-center" style="padding: 1rem!important;">
