@@ -35,19 +35,19 @@
 
     protected override void OnInitialized()
     {
-        Controller con = new Controller();
-        if (con.islogged())
-        {
-            u = con.getuser();    
-        }
+        // Controller con = new Controller();
+        // if (con.islogged())
+        // {
+        //     u = con.getuser();    
+        // }
 
         StateHasChanged();
     }
 
     public void deslogar()
     {
-        Controller con = new Controller();
-        con.deslogar();
+        // Controller con = new Controller();
+        // con.deslogar();
 
         NavigationManager.NavigateTo("/");
         StateHasChanged();

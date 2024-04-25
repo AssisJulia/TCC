@@ -60,9 +60,10 @@
             msg = contador >= 3 ? "Parabens! essa é a "+contador+" consecutiva!" : "Parabéns!";
             clickedButton.Style = "background-color: green; color: white;";
 
-            Controller con = new Controller();
-            Usuario user = con.getuser();
-            UserMatematica newmatematica = user.matematica;
+            // Controller con = new Controller();
+            // Usuario user = con.getuser();
+            // UserMatematica newmatematica = user.matematica;
+            UserMatematica newmatematica = new UserMatematica();
 
             switch (operacao)
             {
@@ -72,10 +73,10 @@
                 case "div": newmatematica.div++; break;
             }
 
-            if (con.islogged()) // if a user is logged, update his math status
-            {
-                con.upadateusermatematica(newmatematica);
-            }
+            // if (con.islogged()) // if a user is logged, update his math status
+            // {
+            //     con.upadateusermatematica(newmatematica);
+            // }
         }
         else
         {

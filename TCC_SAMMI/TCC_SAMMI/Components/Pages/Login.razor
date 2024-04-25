@@ -71,8 +71,8 @@
 
     public void logar()
     {
-        Controller con = new Controller();
-        var list = con.getusers();
+        // Controller con = new Controller();
+        var list = new List<Usuario>();
 
         bool achou = false;
 
@@ -81,7 +81,7 @@
             if (user.nome == this.value && user.senha == this.passwordValue)
             {
                 achou = !achou;
-                con.logar(user);
+                // con.logar(user);
 
                 this.alerttype = AlertStyle.Success;
                 this.alertmsg = "Bem-vindo(a) " + user.nome;

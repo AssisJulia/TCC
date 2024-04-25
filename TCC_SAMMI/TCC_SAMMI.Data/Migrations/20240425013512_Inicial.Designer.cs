@@ -12,7 +12,7 @@ using TCC_SAMMI.Data.Context;
 namespace TCC_SAMMI.Data.Migrations
 {
     [DbContext(typeof(TCC_SAMMIContext))]
-    [Migration("20240419001037_Inicial")]
+    [Migration("20240425013512_Inicial")]
     partial class Inicial
     {
         /// <inheritdoc />
@@ -24,6 +24,36 @@ namespace TCC_SAMMI.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
+
+            modelBuilder.Entity("TCC_SAMMI.Domain.Entities.Jogo", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime>("Data")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Disciplina")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("Pontuacao")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TipoJogo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<Guid>("UsuarioId")
+                        .HasColumnType("char(36)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("JogoSet");
+                });
 
             modelBuilder.Entity("TCC_SAMMI.Domain.Entities.Usuario", b =>
                 {
@@ -49,6 +79,17 @@ namespace TCC_SAMMI.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TB_Usuario", (string)null);
+                });
+
+            modelBuilder.Entity("TCC_SAMMI.Domain.Entities.Jogo", b =>
+                {
+                    b.HasOne("TCC_SAMMI.Domain.Entities.Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Usuario");
                 });
 #pragma warning restore 612, 618
         }
