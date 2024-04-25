@@ -7,10 +7,18 @@ namespace TCC_SAMMI.Data.Context
     public class TCC_SAMMIContext : DbContext
     {
         public DbSet<Usuario> UsuariosSet { get; set; }
+        public DbSet<Jogo> JogoSet {  get; set; }
+
+        protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+        {
+            base.ConfigureConventions(configurationBuilder);
+
+            configurationBuilder.Properties<Enum>().HaveConversion<string>();
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());            
 
             base.OnModelCreating(modelBuilder);
         }

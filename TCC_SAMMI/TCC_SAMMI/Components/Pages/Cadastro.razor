@@ -91,58 +91,58 @@
 
     public void cadastra()
     {
-        if (this.confsenha != this.senha)
-        {
-            this.alerttype = AlertStyle.Warning;
-            this.alertmsg = "As senha devem coincidir!";
-            this.showalert = !this.showalert;
-        }
-        else if (!Regex.IsMatch(this.email, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase))
-        {
-            this.alerttype = AlertStyle.Warning;
-            this.alertmsg = "Utilize um email válido!";
-            this.showalert = !this.showalert;
-        }
-        else //tudo certo, campos validados
-        {
-            this.alertmsg = "";
+        // if (this.confsenha != this.senha)
+        // {
+        //     this.alerttype = AlertStyle.Warning;
+        //     this.alertmsg = "As senha devem coincidir!";
+        //     this.showalert = !this.showalert;
+        // }
+        // else if (!Regex.IsMatch(this.email, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase))
+        // {
+        //     this.alerttype = AlertStyle.Warning;
+        //     this.alertmsg = "Utilize um email válido!";
+        //     this.showalert = !this.showalert;
+        // }
+        // else //tudo certo, campos validados
+        // {
+        //     this.alertmsg = "";
 
-            Controller con = new Controller();
-            var list = con.getusers();
+        //     Controller con = new Controller();
+        //     var list = con.getusers();
 
-            //UserRoot novousuario = new UserRoot();
-            Usuario u = new Usuario();
-            u.nome = this.user;
-            u.email = this.email;
-            u.senha = this.senha;
-                DateTime dateTime = DateTime.UtcNow.Date;
-            u.datahora = dateTime.ToString();
-                UserMatematica math = new UserMatematica();
-                math.adi = 0;
-                math.sub = 0;
-                math.mul = 0;
-                math.div = 0;
-            u.matematica = math;
-                UserPortugues portu = new UserPortugues();
-                portu.silabas = 0;
-            u.portugues = portu;
-            //novousuario.user = u;
+        //     //UserRoot novousuario = new UserRoot();
+        //     Usuario u = new Usuario();
+        //     u.nome = this.user;
+        //     u.email = this.email;
+        //     u.senha = this.senha;
+        //         DateTime dateTime = DateTime.UtcNow.Date;
+        //     u.datahora = dateTime.ToString();
+        //         UserMatematica math = new UserMatematica();
+        //         math.adi = 0;
+        //         math.sub = 0;
+        //         math.mul = 0;
+        //         math.div = 0;
+        //     u.matematica = math;
+        //         UserPortugues portu = new UserPortugues();
+        //         portu.silabas = 0;
+        //     u.portugues = portu;
+        //     //novousuario.user = u;
 
-            list.Add(u);
+        //     list.Add(u);
 
-            if (con.cadastrauser(list))
-            {
-                alerttype = AlertStyle.Success;
-                alertmsg = "Cadastro feito com sucesso!";
-                showalert = !showalert;
-            }
-            else
-            {
-                alerttype = AlertStyle.Danger;
-                alertmsg = "Desculpe, tente novamente!";
-                showalert = !showalert;
-            }
-        }
+        //     if (con.cadastrauser(list))
+        //     {
+        //         alerttype = AlertStyle.Success;
+        //         alertmsg = "Cadastro feito com sucesso!";
+        //         showalert = !showalert;
+        //     }
+        //     else
+        //     {
+        //         alerttype = AlertStyle.Danger;
+        //         alertmsg = "Desculpe, tente novamente!";
+        //         showalert = !showalert;
+        //     }
+        // }
     }
 
     void OnChange(bool a,string txt)

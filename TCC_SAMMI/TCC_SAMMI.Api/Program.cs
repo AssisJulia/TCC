@@ -9,6 +9,8 @@ using TCC_SAMMI.Domain.Entities;
 using TCC_SAMMI.Domain.Extensions;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
+using TCC_SAMMI.Domain.DTOs.Jogo.Request;
+using TCC_SAMMI.Domain.DTOs.Jogo.Response;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +20,9 @@ builder.Services.AddSwaggerGen(options =>
     options.EnableAnnotations();
 });
 builder.Services.AddDbContext<TCC_SAMMIContext>();
-builder.Services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
+//builder.Services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
+
+builder.Services.ConfigureHttpJsonOptions(options => options.SerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 
 builder.Services.ConfigureAuthentication();
 builder.Services.ConfigureAuthenticateSwagger();
@@ -113,7 +117,7 @@ app.MapPost("/usuario", (TCC_SAMMIContext context, UsuarioAdicionarRequest usuar
         return operation;
     })
     .WithTags("Usuários");
-    //.RequireAuthorization();
+//.RequireAuthorization();
 
 app.MapPut("/usuario/alterar-senha", (TCC_SAMMIContext context, UsuarioAtualizarRequest usuarioAtualizarRequest) =>
 {
@@ -147,6 +151,86 @@ app.MapPut("/usuario/alterar-senha", (TCC_SAMMIContext context, UsuarioAtualizar
     })
     .WithTags("Usuários")
     .RequireAuthorization();
+
+#endregion
+
+#region Endpoints de Jogo
+app.MapPost("/jogo", (TCC_SAMMIContext context, CriarJogoRequest request) =>
+    {
+        try
+        {
+            //TODO: pegar o id do usuario do token e remover do request
+            var jogo = new Jogo(request.Disciplina, request.TipoJogo, request.UsuarioId);
+
+            context.JogoSet.Add(jogo);
+            context.SaveChanges();
+
+            return Results.Created("Created", $"Jogo Registrado com Sucesso. {jogo.Id}");
+        }
+        catch (Exception ex)
+        {
+            return Results.BadRequest(ex.InnerException?.Message ?? ex.Message);
+        }
+    }
+).WithOpenApi(operation =>
+    {
+        operation.Description = "Endpoint para Iniciar um Jogo";
+        operation.Summary = "Novo Jogo";
+        return operation;
+    }
+).WithTags("Jogos")
+.RequireAuthorization();
+
+app.MapGet("/jogo", (TCC_SAMMIContext context) =>
+{
+    //TODO: obter token do usuario e filtrar pelos jogos relacionados a ele
+    var jogos = context.JogoSet.Select(jogo => new JogoResponse
+    {
+        Data = jogo.Data,
+        TipoJogo = jogo.TipoJogo,
+        Disciplina = jogo.Disciplina,
+        JogoId = jogo.Id,
+        Pontuacao = jogo.Pontuacao
+    });
+
+    return Results.Ok(jogos);
+})
+    .WithOpenApi(operation =>
+    {
+        operation.Description = "Endpoint todas as partidas jogada pelo usuário";
+        operation.Summary = "Listar jogos do usuário";
+        return operation;
+    })
+    .WithTags("Jogos")
+    .RequireAuthorization();
+
+app.MapGet("/jogo/{jogoId}", (TCC_SAMMIContext context, Guid jogoId) =>
+{
+    var jogo = context.JogoSet.Find(jogoId);
+    if (jogo is null)
+        return Results.BadRequest("Jogo não Localizado.");
+
+    var response = new JogoResponse
+    {
+        Data = jogo.Data,
+        TipoJogo = jogo.TipoJogo,
+        Disciplina = jogo.Disciplina,
+        JogoId = jogo.Id,
+        Pontuacao = jogo.Pontuacao
+    };
+
+    return Results.Ok(response);
+})
+    .WithOpenApi(operation =>
+    {
+        operation.Description = "Endpoint para obter um jogo do usuário com base no ID informado";
+        operation.Summary = "Obter o jogo de um usuário";
+        operation.Parameters[0].Description = "Id do Jogo";
+        return operation;
+    })
+    .WithTags("Jogos")
+    .RequireAuthorization();
+
 
 #endregion
 
