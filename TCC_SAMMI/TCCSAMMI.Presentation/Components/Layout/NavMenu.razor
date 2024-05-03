@@ -1,0 +1,53 @@
+﻿<div class="main">
+    <RadzenMenu style="height: 80px;padding: 0px 40px;justify-content: space-between; background-color: #28E1F6">
+        <div style="display: flex; align-items: center;">
+            <img src="logoSammi.png" style="width: 50px; height: 50px; margin-right: 10px;">
+            <RadzenMenuItem Style="font-weight: bold;" Text="SAMMI GAMES">
+                <RadzenMenuItem Text="Jogue nossos jogos!" Path="/" Icon="videogame_asset"></RadzenMenuItem>
+                <RadzenMenuItem Text="Saiba quem somos" Path="/Sobre" Icon="account_circle"></RadzenMenuItem>
+            </RadzenMenuItem>
+        </div>
+        <div style="display: flex;">
+            @if (!string.IsNullOrEmpty(u.nome))
+            {
+                <RadzenMenuItem Text="@u.nome" Icon="account_circle">
+                    <RadzenMenuItem Text="Pontos" Path="/Pontos" Icon="bar_chart"></RadzenMenuItem>
+                    <RadzenMenuItem Text="Sair" Click=@(() => deslogar()) Icon="logout"></RadzenMenuItem>
+                </RadzenMenuItem>
+            }
+            else
+            {
+                <RadzenMenuItem Text="Logar" Icon="login" Path="Login"></RadzenMenuItem>
+                <RadzenMenuItem Text="Cadastrar" Icon="feed" Path="Cadastro"></RadzenMenuItem>
+            }
+        </div>
+    </RadzenMenu>
+</div>
+
+@code {
+    [Inject]
+    private NavigationManager NavigationManager { get; set; }
+
+    Usuario u = new Usuario();
+
+    protected override void OnInitialized()
+    {
+        // Controller con = new Controller();
+        // if (con.islogged())
+        // {
+        //     u = con.getuser();
+        // }
+
+        StateHasChanged();
+    }
+
+    public void deslogar()
+    {
+        // Controller con = new Controller();
+        // con.deslogar();
+
+        NavigationManager.NavigateTo("/");
+        StateHasChanged();
+    }
+}
+

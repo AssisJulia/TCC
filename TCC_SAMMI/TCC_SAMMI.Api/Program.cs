@@ -33,7 +33,7 @@ app.UseSwagger();
 app.UseSwaggerUI();
 
 app.UseAuthentication();
-app.UseAuthorization();
+//app.UseAuthorization();
 app.UseHttpsRedirection();
 
 #region Endpoints de Usuários
