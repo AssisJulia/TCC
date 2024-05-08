@@ -58,12 +58,18 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+        <PackageReference Include="Microsoft.AspNetCore.Routing.Abstractions" Version="2.2.0" />
         <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
         <PackageReference Include="Radzen.Blazor" Version="4.31.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\TCC_SAMMI.Domain\TCC_SAMMI.Domain.csproj" />
     </ItemGroup>
 
     <ItemGroup>
